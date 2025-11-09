@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eng.Osama Emad</title>
+  <link rel="icon" type="image/png" href="osama.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #0a0f1a;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      cursor: none;
+      overflow: hidden;
+    }
+
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    #scorpionCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 40px 60px;
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 40px rgba(0, 200, 255, 0.2);
+    }
+
+    .header1 { font-size: 3em; margin: 0; font-weight: bold; }
+    .header3 { font-size: 2em; margin: 10px 0; font-weight: normal; }
+    .header2 { font-size: 1.3em; margin-top: 15px; color: #a0a8b0; }
+
+    .links { margin-top: 30px; }
+    .links a {
+      color: #ffffff;
+      font-size: 2.5em;
+      margin: 0 18px;
+      transition: color 0.25s, transform 0.25s ease-out;
+      display: inline-block;
+    }
+    .links a:hover {
+      color: #00aced;
+      transform: translateY(-8px) scale(1.2);
+      text-shadow: 0 0 20px rgba(0,200,255,0.7);
+    }
+
+    @keyframes icon-bounce {
+      0%   { transform: translateY(0) scale(1) rotate(0deg); }
+      30%  { transform: translateY(-15px) scale(1.3) rotate(-10deg); }
+      60%  { transform: translateY(0) scale(1.1) rotate(8deg); }
+      100% { transform: translateY(0) scale(1) rotate(0deg); }
+    }
+
+    .cursor {
+      position: fixed;
+      top: 0; left: 0;
+      width: 25px; height: 25px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(0,200,255,0.18) 40%, rgba(0,200,255,0.06) 70%);
+      pointer-events: none;
+      transform: translate3d(0,0,0) translate(-50%,-50%) scale(1);
+      z-index: 9999;
+      box-shadow: 0 0 15px rgba(0,200,255,0.25), 0 0 35px rgba(0,200,255,0.15);
+      mix-blend-mode: screen;
+    }
+
+    .cursor--hover {
+      box-shadow: 0 0 30px rgba(0,200,255,0.55), 0 0 60px rgba(0,200,255,0.25);
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        padding: 25px;
+      }
+      .header1 { font-size: 2.2em; }
+      .header3 { font-size: 1.5em; }
+      .header2 { font-size: 1em; }
+      .links a { font-size: 2em; margin: 0 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+  <canvas id="scorpionCanvas"></canvas>
+
+  <div class="content">
+    <p class="header1">Eng.Osama Emad</p>
+    <p class="header3">Osama Emad Ibrahim</p>
+    <p class="header2">CyberSecurity & Network Security Specialist | CEH | OSCP</p>
+
+    <div class="links">
+      <a href="https://www.youtube.com/@Eng.OsamaEmad098" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.facebook.com/eng.osama098/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/eng.osama098/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@eng.osama098" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.linkedin.com/in/eng-osama-emad/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://tryhackme.com/p/Eng.Osama" target="_blank" title="TryHackMe"><i class="fa-solid fa-user-ninja"></i></a>
+      <a href="https://wa.me/201128939834" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:osamaemad098@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </div>
+
+  <div class="cursor" id="cursor"></div>
+
+  <!-- Particles -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <!-- Background effect -->
+  <script>
+    particlesJS('particles-js', {
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#00ffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.4 },
+        "size": { "value": 3 },
+        "line_linked": { "enable": true, "color": "#00ffff", "opacity": 0.3 },
+        "move": { "enable": true, "speed": 2 }
+      },
+      "retina_detect": true
+    });
+
+    // 🦂 تأثير الذيل (scorpion / turtle style)
+    const canvas = document.getElementById("scorpionCanvas");
+    const ctx = canvas.getContext("2d");
+    let width, height;
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    const segments = [];
+    const SEGMENT_COUNT = 40;
+    const SEGMENT_LENGTH = 10;
+    const FOLLOW_SPEED = 0.2;
+
+    for (let i = 0; i < SEGMENT_COUNT; i++) {
+      segments.push({ x: width / 2, y: height / 2 });
+    }
+
+    const mouse = { x: width / 2, y: height / 2 };
+
+    window.addEventListener("mousemove", (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    function update() {
+      segments[0].x += (mouse.x - segments[0].x) * FOLLOW_SPEED;
+      segments[0].y += (mouse.y - segments[0].y) * FOLLOW_SPEED;
+
+      for (let i = 1; i < SEGMENT_COUNT; i++) {
+        const dx = segments[i - 1].x - segments[i].x;
+        const dy = segments[i - 1].y - segments[i].y;
+        const angle = Math.atan2(dy, dx);
+        const targetX = segments[i - 1].x - Math.cos(angle) * SEGMENT_LENGTH;
+        const targetY = segments[i - 1].y - Math.sin(angle) * SEGMENT_LENGTH;
+        segments[i].x += (targetX - segments[i].x) * 0.9;
+        segments[i].y += (targetY - segments[i].y) * 0.9;
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+      for (let i = segments.length - 1; i > 0; i--) {
+        const opacity = (1 - i / SEGMENT_COUNT) * 0.8 + 0.2;
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(0,255,255,${opacity})`;
+        ctx.lineWidth = 4 * (1 - i / SEGMENT_COUNT) + 0.5;
+        ctx.moveTo(segments[i].x, segments[i].y);
+        ctx.lineTo(segments[i - 1].x, segments[i - 1].y);
+        ctx.stroke();
+      }
+      ctx.beginPath();
+      ctx.fillStyle = "rgba(0,255,255,0.95)";
+      ctx.arc(segments[0].x, segments[0].y, 6, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function loop() {
+      update();
+      draw();
+      requestAnimationFrame(loop);
+    }
+    loop();
+  </script>
+</body>
+</html>
